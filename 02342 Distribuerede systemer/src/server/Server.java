@@ -35,31 +35,25 @@ public class Server implements RMISensor{
 			System.out.println("Server exception");
 			System.out.println("or maybe not?");
 			e.printStackTrace();
-		}		
+		}
 	}
 	
-//	public void run(){
-//		try{
-//			String name = RMISENSOR;
-//			//#########################
-//			//Valg af interface
-//			RMISensor engine = new Server();
-//			RMISensor stub = (RMISensor) UnicastRemoteObject.exportObject(engine, 0);
-//			//#################
-//			Registry registry = LocateRegistry.getRegistry();
-//			registry.rebind(name, stub);
-//			System.out.println("Server bound");
-//		} catch (Exception e) {
-//			System.out.println("Server exception");
-//			e.printStackTrace();
-//		}
-//	}
-	@Override
 	public double getAvg() {
 		avg = (sum/amount);
 		return avg;
 	}
-	@Override
+	
+	public void printTemp(int a){
+		System.out.println(a);
+	}
+	
+	public void upTemp(int temperatur){
+		sum = sum + temperatur;
+		amount++;
+		getAvg();
+		System.out.println("Recieved temperature: " + temperatur);
+	}
+	
 	public String executeTask() {
 
 		return "5fghjkl";
