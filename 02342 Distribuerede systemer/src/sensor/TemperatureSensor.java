@@ -9,7 +9,7 @@ public class TemperatureSensor {
 	public static void main (String args[]){
 		try {
             String name = RMISENSOR;
-            Registry registry = LocateRegistry.getRegistry(args[0]);
+            Registry registry = LocateRegistry.getRegistry(7878);
             RMISensor comp = (RMISensor) registry.lookup(name);
             TemperatureGenerator task = new TemperatureGenerator();
             String temp = comp.executeTask();

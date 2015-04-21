@@ -27,7 +27,8 @@ public class Server implements RMISensor{
 			RMISensor engine = new Server();
 			RMISensor stub = (RMISensor) UnicastRemoteObject.exportObject(engine, 0);
 			//#################
-			Registry registry = LocateRegistry.getRegistry();
+			LocateRegistry.createRegistry(7878);
+			Registry registry = LocateRegistry.getRegistry(7878);
 			registry.rebind(name, stub);
 			System.out.println("Server bound");
 		} catch (Exception e) {
@@ -61,6 +62,6 @@ public class Server implements RMISensor{
 	@Override
 	public String executeTask() {
 
-		return null;
+		return "5fghjkl";
 	}
 }
